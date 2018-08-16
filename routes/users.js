@@ -8,10 +8,10 @@ const db = require("../models/index");
 router.use(passport.initialize());
 router.use(passport.session());
 
-passport.serializeUser((user, done) => {
+passport.serializeUser(function(user, done) {
   done(null, user);
 });
-passport.deserializeUser((user, done) => {
+passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
@@ -46,13 +46,14 @@ passport.use(
 // @route GET routes/users/test
 // @desc Tests users route
 // @access Public
-router.get("/test", (req, res) => res.json({ msg: "User works" }));
+router.get('/test', (req, res) => res.json({msg: 'User works'}));
 
 // // @route GET routes/users/register
 // // @desc Renders register.hbs view
 // // @access Public
 router.get("/register", (req, res) => {
-  res.render("register", {});
+  res.render("register", {
+  });
 });
 
 // @route POST routes/users/register
@@ -83,7 +84,8 @@ router.post("/register", (req, res) => {
 // @desc Renders login.hbs view
 // @access Public
 router.get("/login", (req, res) => {
-  res.render("login", {});
+  res.render("login", {
+  });
 });
 
 // @route POST routes/users/login
